@@ -5,11 +5,17 @@ var Thermostat = function() {
 };
 
 Thermostat.prototype.increase = function() {
+  if (this.increase && this.powerSaving == true && this.temperature == 25) {
+    throw new Error("ERROR");
+  }
+  else if (this.increase && this.powerSaving == false && this.temperature == 32) {
+    throw new Error("ERROR");
+  }
   this.temperature ++
 };
 
 Thermostat.prototype.decrease = function() {
-if (this.decrease && this.temperature === 10) {
+  if (this.decrease && this.temperature === 10) {
     throw new Error("ERROR");
   }
   this.temperature --
