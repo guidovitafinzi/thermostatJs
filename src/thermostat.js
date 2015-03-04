@@ -8,10 +8,12 @@ Thermostat.prototype.increase = function() {
 };
 
 Thermostat.prototype.decrease = function() {
+if (this.decrease && this.temperature === 10) {
+    throw new Error("ERROR");
+  }
   this.temperature --
 };
 
-
-class_name.prototype.method_name = function(first_argument) {
-  // body...
+Thermostat.prototype.reset = function() {
+  this.temperature = 20
 };

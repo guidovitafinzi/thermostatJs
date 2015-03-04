@@ -1,5 +1,5 @@
 **Thermostat Interface**
-
+========================
 ..a simple interface for a digital thermostat, using JavaScript, jQuery and Jasmine.
 
 *specification*
