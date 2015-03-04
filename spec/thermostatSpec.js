@@ -27,10 +27,8 @@ describe('Thermostat', function(){
 
     it('has a min temperature', function() {
       thermostat.temperature = 10
+      thermostat.decrease();
       expect(thermostat.temperature).toEqual(10)
-      expect(function() {
-        thermostat.decrease();
-      }).toThrowError("ERROR");
     });
 
     it('can be reset to 20', function() {
@@ -59,17 +57,15 @@ describe('Thermostat', function(){
 
     it('has a max temperature if power saving is on', function() {
       thermostat.temperature = 25
-      expect(function() {
-        thermostat.increase();
-      }).toThrowError("ERROR");
+      thermostat.increase();
+      expect(thermostat.temperature).toEqual(25)
     });
 
     it('has a max temperature if power saving is off', function() {
       thermostat.powerSaving = false
       thermostat.temperature = 32
-      expect(function() {
-        thermostat.increase();
-      }).toThrowError("ERROR")
+      thermostat.increase();
+      expect(thermostat.temperature).toEqual(32)
     });
   });
 });
