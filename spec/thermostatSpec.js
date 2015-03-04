@@ -68,4 +68,26 @@ describe('Thermostat', function(){
       expect(thermostat.temperature).toEqual(32)
     });
   });
+
+  describe('display energy usage', function() {
+
+    it('display low if temperature < 18', function() {
+      thermostat.temperature = 18
+      thermostat.decrease();
+      expect(thermostat.energyUsage()).toEqual("low")
+    });
+
+    it('display medium if temperature < 25', function() {
+      thermostat.temperature = 17
+      thermostat.increase();
+      expect(thermostat.energyUsage()).toEqual("medium")
+    });
+
+    it('display high if temperature > 25', function() {
+      thermostat.temperature = 25
+      thermostat.increase();
+      expect(thermostat.energyUsage()).toEqual("high")
+    });
+  });
+
 });

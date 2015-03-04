@@ -15,14 +15,14 @@ Thermostat.prototype.increase = function() {
   else if (this.increase && this.powerSaving == false && this.temperature == this.maxTempPowerSavingOff) {
     return this.temperature = this.maxTempPowerSavingOff
   }
-  this.temperature ++
+  return this.temperature ++
 };
 
 Thermostat.prototype.decrease = function() {
   if (this.decrease && this.temperature === this.minTemperature) {
     return this.temperature == this.minTemperature;
   }
-  this.temperature --
+  return this.temperature --
 };
 
 Thermostat.prototype.reset = function() {
@@ -38,4 +38,14 @@ Thermostat.prototype.switchOn = function() {
 
 Thermostat.prototype.switchOff = function() {
   return this.powerSaving = false
+};
+
+Thermostat.prototype.energyUsage = function() {
+  if (this.temperature < 18) {
+    return "low";
+  }
+  else if (this.temperature >= 25) {
+    return "high"
+  }
+  return "medium"
 };
