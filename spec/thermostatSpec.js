@@ -38,6 +38,24 @@ describe('Thermostat', function(){
       thermostat.reset();
       expect(thermostat.temperature).toEqual(20);
     });
+  });
+
+  describe('power saving', function() {
+
+    it('is on by default', function() {
+      expect(thermostat.powerSaving).toEqual(true);
+    });
+
+    it('can be switched on', function() {
+      thermostat.powerSaving = false
+      thermostat.switchOn();
+      expect(thermostat.powerSaving).toEqual(true);
+    });
+
+    it('can be switched off', function () {
+      thermostat.switchOff();
+      expect(thermostat.powerSaving).toEqual(false);
+    });
 
   });
 
