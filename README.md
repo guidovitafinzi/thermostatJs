@@ -1,7 +1,7 @@
 **Thermostat Interface**
-========================
+
 ..a simple interface for a digital thermostat, using JavaScript, jQuery and Jasmine.
-========================
+
 *specification*
 ---------------
 * Thermostat starts at 20 degrees
