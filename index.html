@@ -12,8 +12,8 @@
       </h1>
       <h2 class="degrees">degrees</h2>
       <p>
-        <a href='#' class='increase button'>+</a>
-        <a href='#' class='decrease button'>-</a>
+        <a href='#' class='increaseTemp button'>+</a>
+        <a href='#' class='decreaseTemp button'>-</a>
         <a href='#' class='reset'>reset</a>
       </p>
       <p>
@@ -26,6 +26,30 @@
 
       <script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
       <script src='src/thermostat.js'></script>
+      <script>
+      console.log('ok')
+      var thermostat = new Thermostat();
+      $(document).ready(function() {
+        $('#temperature').text(thermostat.temperature);
+
+        $('.increaseTemp').on('click', function(e) {
+          e.preventDefault();
+          thermostat.increase();
+          $('#temperature').text(thermostat.temperature);
+        });
+        $('.decreaseTemp').on('click', function(e) {
+          e.preventDefault();
+          thermostat.decrease();
+          $('#temperature').text(thermostat.temperature);
+        });
+        $('.reset').on('click', function(e) {
+          e.preventDefault();
+          thermostat.reset();
+          $('#temperature').text(thermostat.temperature);
+        });
+
+      });
+      </script>
 
     </main>
   </body>
